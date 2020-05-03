@@ -1,0 +1,39 @@
+\begin{thenomenclature} 
+
+ \nomgroup{A}
+
+  \item [{AVL}]\begingroup Automatic Vehicle Location\nomeqref {1.0}
+		\nompageref{1}
+  \item [{BT}]\begingroup Bayes Theorem\nomeqref {1.0}\nompageref{3}
+  \item [{CNA}]\begingroup Chetan Nimba Aher\nomeqref {1.0}
+		\nompageref{1}
+  \item [{cna}]\begingroup chetan nimba aher\nomeqref {1.0}
+		\nompageref{1}
+  \item [{EKF}]\begingroup Extended Kalman Filter\nomeqref {9.2}
+		\nompageref{57}
+  \item [{ERM}]\begingroup Empirical Risk Minimization\nomeqref {1.0}
+		\nompageref{3}
+  \item [{GPS}]\begingroup Global Positioning System\nomeqref {1.0}
+		\nompageref{1}
+  \item [{GSM}]\begingroup Global System for Mobiles\nomeqref {1.0}
+		\nompageref{1}
+  \item [{ITS}]\begingroup Intelligent Transportation Systems\nomeqref {1.0}
+		\nompageref{1}
+  \item [{k-NN}]\begingroup k- Nearest Neighbor\nomeqref {1.0}
+		\nompageref{3}
+  \item [{MC}]\begingroup Markov Chains\nomeqref {1.0}\nompageref{3}
+  \item [{NIPS}]\begingroup Neural Information Processing Systems\nomeqref {1.0}
+		\nompageref{2}
+  \item [{NSR}]\begingroup Neha Suresh rathod\nomeqref {1.0}
+		\nompageref{1}
+  \item [{RSSI}]\begingroup Received Signal Strength Indication\nomeqref {1.0}
+		\nompageref{2}
+  \item [{SMP}]\begingroup Smallest Vertex Polygon\nomeqref {1.0}
+		\nompageref{3}
+  \item [{SRM}]\begingroup Structural Risk Minimization\nomeqref {1.0}
+		\nompageref{3}
+  \item [{SVM}]\begingroup Support Vector Machine\nomeqref {1.0}
+		\nompageref{2}
+  \item [{TA}]\begingroup Timing Advance\nomeqref {9.2}\nompageref{57}
+
+\end{thenomenclature}

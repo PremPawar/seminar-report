@@ -1,0 +1,1702 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[12pt]{report}	%Doccument Class Specification
+
+\setlength{\textwidth}{6.25in} % original 6.25 %Text Lenght SetUp
+\setlength{\textheight}{8in}
+
+\renewcommand{\baselinestretch}{1.3}	%Page Margin SetUp
+\oddsidemargin 20pt    %  Left margin on odd-numbered pages.
+\evensidemargin 20pt   %  Note that \oddsidemargin = \evensidemargin
+\topmargin 0pt
+\newcommand{\squeezeup}{\vspace{-0.6cm}}
+%\renewcommand{\tableofcontents}{INDEX} 
+\renewcommand*\contentsname{INDEX}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Define Packages
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{subfigure}
+\usepackage{algorithmic}
+\usepackage{algorithm}
+\usepackage{graphics}
+\usepackage{epsfig}
+\usepackage{listing}
+\usepackage{graphicx}
+\usepackage{titlesec}
+\usepackage{url}
+\usepackage{fancyhdr}
+\usepackage{float}
+\usepackage{fancybox}
+\usepackage{xcolor}
+\usepackage[left=3.81cm,top=2.54cm,right=2.54cm,bottom=3.175cm]{geometry}
+\usepackage{pdfpages}
+\usepackage[font=normalsize,labelfont=bf]{caption}
+\usepackage[]{hyperref}
+\usepackage[intoc]{nomencl}
+\renewcommand{\nomname}{List of Abbreviations}
+\makenomenclature
+
+\makeindex
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%Change Font Size Of Titles
+\titleformat{\chapter}[display]
+  {\normalfont\large\bfseries\centering}{\chaptertitlename\ \thechapter}{14pt}{\large}
+\titleformat{\section}{\normalsize \bfseries}{\thesection}{1em}{}
+\titleformat{\subsection}{\normalsize \bfseries}{\thesubsection}{1em}{}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Begin document "environment".
+
+\begin{document} % Begin document "environment".
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%	
+%Title Page
+	\begin{titlepage}   
+		\thisfancypage{\setlength{\fboxsep}{10pt}\doublebox}{}
+		\vspace*{0.1in}
+		\begin{center}
+		{ \bf { SEMINAR REPORT \\ ON}}\\
+		%{ \bf {REPORT ON}}\\
+		\vspace{0.2in}
+		{\Large \bf {``VEHICLE TRACKING AND POSITIONING IN GSM NETWORK USING SVM''}}
+		\\
+		\vspace{0.2in}
+		{\bf BY}\\
+		\vspace{0.1in}
+		{\bf MR. AHER CHETAN NIMBA} \\ {\bf Exam No: \ldots }\\
+		\vspace{0.2in}
+		{\bf Under the guidance of}\\
+		\vspace{0.1in}
+		{\large \bf Mr. C. N. AHER}\\
+		\vspace{0.1in}
+		\begin{figure*}[h]
+		\centerline{\psfig{figure=./aissmsioitlogo.png,width=2.2in,height=2in}}
+		\label{atcres}
+		\end{figure*}
+		{ \bf{ DEPARTMENT OF COMPUTER ENGINEERING}}\\ 
+		\vspace{0.2in}
+		{ \bf ALL INDIA SHRI SHIVAJI MEOMRIAL SOCIETY'S \\
+		{\large \bf INSTITUTE OF INFORMATION TECHNOLOGY }}\\ 
+		{\bf \small PUNE 411041 }\\ 
+		\vspace{0.2in}
+		{ \bf SAVITRIBAI PHULE PUNE UNIVERSITY} \\
+		\small{2017-2018}
+		\end{center}
+	\end{titlepage}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Certificate
+	\thisfancypage{\setlength{\fboxsep}{10pt}\doublebox}{}	
+	
+	\begin{titlepage}   
+\begin{minipage}[l]{1in}
+\includegraphics[width=1\linewidth]{aissmsioitlogo.png}  %Here include left side image
+\end{minipage}
+ \hfill
+ %============================= 
+\begin{minipage}[c]{5.5in}
+\begin{center}
+   \vspace{0.2in}
+   {\bfseries \large Department of Computer Engineering }\\
+   \vspace{0.1in}
+   {\bf  All India Shri Shivaji Memorial Society's} \\
+   {\bf \Large Institute of Information Technology,}\\
+   {\bf \scriptsize Pune-411041.}
+\end{center}
+\rule{4.5in}{0.1cm}
+%    }}
+\end{minipage}
+
+%	\begin{titlepage}
+		\begin{center}
+%		\begin{figure*}[h]
+%		\centerline{\psfig{figure=./aissmsioitlogo.png,width=1.8in,height=1.4in}}
+%		\label{atcres}
+%		\end{figure*}
+%		{\bf{ DEPARTMENT OF COMPUTER ENGINEERING}}\\
+%		{ \bf All India Shri Shivaji Memorial Society's \\
+%%		{\bf   PUNE 411041 }\\ 
+		\vspace{0.2in}
+		{\large\textbf{CERTIFICATE}}\\
+		\vspace{0.2in}
+		{\small This is to certify that {\bf Mr. C. N. AHER Exam No.:........... } from {\bf Third Year $II^{nd}$ Shift Computer Engineering }
+		has successfully complited his/her seminar work titled }\\
+		\vspace{0.2in}
+		{\large \bf {``VEHICLE TRACKING AND POSITIONING IN GSM NETWORK USING SVM''}}\\
+		\end{center}
+		at All India Shri Shivaji Memorial Society's Institute of Information Technology, Pune 
+		in the partial fulfillment of the Bachlors Degree in Computer Engineering \\
+		\vspace*{0.3in}\\
+		\hspace*{0.4in}Mr. Chetan. N. Aher \hspace*{2.0in} Ms. V. S. Bhende\\
+		\hspace*{0.4in}Internal Guide \hspace*{2.4 in} Seminar Coordinator\\
+		\vspace*{0.3in}\\
+		\hspace*{0.4in}Seal/Stamp of the college \hspace*{2 in} Mrs. S. N. Zaware \\
+		\hspace*{0.6in}   \hspace{3.5 in} Head of the Department \\
+		\hspace*{0.4in}Place: PUNE \hspace*{2.8 in}{Computer Engineering}\\
+		\hspace*{0.4in}Date:
+	\end{titlepage}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\pagenumbering{roman} %Roman PageNumbers
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%Abstract
+\addcontentsline{toc}{chapter}{Abstract}
+\chapter*{ABSTRACT}
+Vehicle locationing in GSM network with greater accuracy is one of the major popular
+research topic of Intelligence transportation System and it goes on with the evolution
+of techniques and methods which enable the data processor to learn and execute
+activities with the help of Machine learning. Support Vector Machine (SVM) is an
+isolated classifier which deals with both linear and nonlinear data from hyper-plane
+with the help of Supervised Learning technique. Wherever the Statistical Learning
+Theory was unable to procure location information in a Mobile Computing because
+of functional dependencies of geographic coordinates from RSSI but SVM can predict
+the location fingerprint with regression estimation and linear operator inversion and
+realize the actual risk minimization by structural risk minimization. SVM can deliver
+a good learning outcome with the help of less sample dataset. Basically SVM is for
+linearly separable samples to determine the optimal classification hyper-plane. 
+The existing ANN model gives the standared deviation upto 20\%  to 22\%. The
+SVM model can give the standard deviation upto 8\% to 10\% from the same dataset used 
+for training as well as testing for both the models. SVM gives a very low
+error rate when used for classification. SVM achieve greater accuracy in predicting the 
+location information of vehicles in GSM network.
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Acknowledgement
+\addcontentsline{toc}{chapter}{Acknowledgement}
+\chapter*{ACKNOWLEDGEMENT}
+
+\ldots
+
+\vspace{20mm} 
+\begin{flushright}
+{
+\begin{minipage}{2.7 in}
+\textbf{Mr. Aher Chetan Nimba}\\
+ AISSMS IOIT, Pune.\\
+\end{minipage}} \hfill
+\end{flushright}
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%List Of Publications
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\addcontentsline{toc}{chapter}{Index}
+\tableofcontents
+\newpage
+%Default Pages
+\newpage
+%\addcontentsline{toc}{chapter}{List of Abbreviations}
+\printnomenclature
+\newpage
+\addcontentsline{toc}{chapter}{List of Figures}
+\listoffigures
+\newpage
+\addcontentsline{toc}{chapter}{List of Tables}
+\listoftables
+\newpage	
+
+
+%Default Pages - Table of Content
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%Synopsis
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Technical Key Words
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\pagenumbering{arabic}		%Page Numbering For Main Document
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%Header And Footer
+\fancyhf{}
+\fancyhead[LE]{\leftmark}
+\rhead[RO]{\scriptsize{\it VEHICLE TRACKING AND POSITIONING IN GSM NETWORK USING SVM}}
+\cfoot[LE,RO]{\thepage\\\scriptsize{Department of Computer Engineering, AISSMS Institute of Information Technology, Pune. 2016-2017}}
+\renewcommand{\footrulewidth}{0.4pt}
+\pagestyle{fancy}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\chapter{INTRODUCTION}
+The Trends of Intelligent Transportation Systems (ITS)\index{ITS} \nomenclature{ITS}{Intelligent Transportation Systems} 
+has been continuously being popular over the recent years. The researchers has been looking forward to enhance 
+transportation systems with information technology and communication. To achieve better performances in terms of 
+transportation duration, fuel consumption, safety, etc. To achieve the best possible route and optimize the overall 
+transportation system cost, it has been needed that there should be continuous and accurate track of Vehicle. The 
+ITS most oftenly depends on precise location information \cite{6}.
+
+\section{DISSERTATION IDEATION}
+Automatic Vehicle Location (AVL)\index{AVL} \nomenclature{AVL}{Automatic Vehicle Location} systems use vehicle location 
+information. The system archieve the geographic location of a vehicle and acknowledge the information back to the
+request originator. The AVLs are most often developed for public transportation (buses, trains, and taxies) 
+and emergency (police, firefighters, and ambulance).
+The AVL system can acquire a vehicle’s location information using GPS
+(cna) \index(cna) \nomenclature{cna}{chetan nimba aher} or
+GSM. 
+
+Global Positioning System (GPS)\index{GPS} \nomenclature{GPS}{Global Positioning System}, has majorly use to estimate a
+vehicle tracking in an AVL system. It has very good accuracy, among the other available positioning technologies.
+But in the urban areas having roads surrounded by huge and narrow buildings forming a sort of urban canyon. 
+Which impairs the availability of the GPS system. 
+
+The alternatives to GPS is Global System for Mobiles (GSM).\index{GSM} \nomenclature{GSM}{Global System for Mobiles} 
+Which is used for tracking the vehicle/mobile in GSM Network using the GSM Loction Information \cite{6}.
+
+\section{MOTIVATION OF THE DISSERTATION}
+Machine Learning is one of the major popular research topics of Artificial Intelligence and its relay with the evolution of
+techniques and methods which enable the data processor to learn and execute activities. 
+Support Vector Machine (SVM) \index{SVM} \nomenclature{SVM}{Support Vector Machine} is a segregated
+classifier deal with both linear and nonlinear data from hyperplane with the help of Supervised Learning Approach. 
+Whereas Statistical Learning Theory cannot procure location information in a Sentient Computing because of functional 
+dependencies of geographic coordinates from RSSI \index{RSSI} \nomenclature{RSSI}{Received Signal Strength Indication}
+but SVM can predict the location fingerprint with regression estimation and linear operator inversion and realize
+the actual risk minimization by structural risk minimization, so that SVM can also obtain a good learning outcome in the 
+face of less sample volume. The basic idea of SVM is for the linearly separable samples, to find the optimal classification 
+hyperplane which can describe accurately the samples into two categories for the linearly nonseparable problems; to 
+transform the linear non-separable problems in the original space into the linearly separable problems in 
+high-dimensional feature space by a nonlinearly transformation for the given samples. SVM gives 
+a very low error rate when used as a classifier \cite{18}.
+
+Support Vector Machine (SVM)\index{SVM}\nomenclature{SVM}{Support Vector Machine} was first heard in 1992, 
+introduced Vladimir Vapnik and Alexey Chervonenkis in 1992 and gained increasing popularity in late 1990s. 
+Support vector machines (SVMs) are a set of related supervised learning methods used for classification and
+regression. They belong to a family of generalized linear classifiers. In another terms, Support
+Vector Machine (SVM) is a classification and regression prediction tool that uses machine
+learning theory to maximize predictive accuracy while automatically avoiding over-fit to the
+data. Support Vector machines can be defined as systems which use hypothesis space of a
+linear functions in a high dimensional feature space, trained with a learning algorithm from
+optimization theory that implements a learning bias derived from statistical learning theory.
+Support vector machine was initially popular with the Neural Information Processing Systems
+(NIPS)\index{NIPS}\nomenclature{NIPS}{Neural Information Processing Systems} community and now is 
+an active part of the machine learning research around the
+world. SVM becomes famous when, using pixel maps as input; it gives accuracy comparable
+to sophisticated neural networks with elaborated features in a handwriting recognition task. It
+is also being used for many applications, such as hand writing analysis, face analysis and so
+forth, especially for pattern classification and regression based applications. The formulation
+of SVM uses the Structural Risk Minimization (SRM)\index{SRM} \nomenclature{SRM}{Structural Risk Minimization} 
+principle, which has been shown to be
+superior, to traditional Empirical Risk Minimization (ERM)\index{ERM} \nomenclature{ERM}{Empirical Risk Minimization}
+principle, used by conventional
+neural networks. SRM minimizes an upper bound on the expected risk, where as ERM
+minimizes the error on the training data. It is this difference which equips SVM with a greater
+ability to generalize, which is the goal in statistical learning. SVMs were developed to solve
+the classification problem, but recently they have been extended to solve regression problems \cite{2}.
+
+For more about statistical learning theory refere ANNEXURE B [\ref{Appendix B}]
+
+\section{LITERATURE SURVEY OF THE DISSERTATION}
+The methods considered are k- Nearest Neighbor (k-NN)\index{k-NN}\nomenclature{k-NN}{k- Nearest Neighbor},
+support vector machines (SVM), smallest vertex polygon (SMP)\index{SMP}\nomenclature{SMP}{Smallest Vertex Polygon},
+neural networks (NN), Bayes theorem (BT)\index{BT}\nomenclature{BT}{Bayes Theorem}, and Markov Chains (MC)\index{MC}\nomenclature{MC}{Markov Chains}. 
+A common trait most fingerprinting methods share is that a small change in the layout of 
+the environment or the position of emitter devices would require retraining the system. 
+The NN and MC methods have a similar behavior are discussed together \cite{5}.
+For more detailed about different positioning methods \ref{Appendix C} ANNEXURE C.
+\begin{itemize}
+ \item{\bf Performance of kNN on Indoor Environments}
+The k-NN positioning method has a great accuracy at close range (2.4m at 50m, 1.26 at 25m), 
+but it quickly deteriorates
+when closing in to the target. This is due to an innate problem of the k-NN algorithm: 
+similar readings (i.e. Close points) increase the probability of an estimation error. 
+Even though the k-NN algorithm does not always compute position in the same way, it has a 
+remarkable precision. A problem with k-NN is that greater granularity (more fingerprints) increases 
+the computational needs and requires a greater training effort \cite{6}.
+\item{\bf Performance of SVM on Indoor Environments}
+The SVM method has a high accuracy rate although its precision can be affected by similar readings of signals
+coming from different points. However, the complexity of the operations required for the positioning estimations 
+demands a powerful computing infrastructure. An advantage of this method is its scalability; it is able to support 
+a large amount of simultaneous targets and can be easily adapted to position resources in 3-D environments, 
+because of its multidimensional approach \cite{6}.
+\item{\bf Performance of SMP on Indoor Environments}
+SMP calculates target positions with the help of averages,which leads to a relatively high accuracy 
+in most cases, but a high precision error rate \cite{6}. This impacts SMP's score in both scalability and complexity, 
+as with other fingerprinting methods.
+\item{\bf Performance of NN on Indoor Environments}
+NN has great accuracy at close range as 2.94m at 50m and 1.39m at 25m \cite{6}. A strong point of NN is that they have
+better performance than other methods when the training database is very large, though it still requires a moderate
+amount of training and computing power to carry out acceptable estimations.
+\item{\bf Performance of BT and MC on Indoor Environments}
+The BT and MC fingerprinting have greater accuracy at greater distances from the 
+reference points, which decreases at closer distance \cite{7}. But both methods work under probability assumptions and 
+their complexity is relative to the size of the coverage area and amount of targets. Sampling can be done at 
+any time for the BT method, allowing the users to adjust marginal distributions of access points when a change 
+invalidates the current signal calibration. A drawback of the MC method is the enormous size of its state space, 
+which grows with each new state update \cite{7}.
+
+Sampled SVM is a new data modeling method for training SVMs. Where its shown that it is fast, scalable, 
+and parallelizable, yielding approximate solutions to SVM training problems. Furthermore, the method may 
+use any SVM training implementation. Comparing the eight-core implementations of Sampled SVM and Cascade SVM 
+demonstrates the algorithm to be faster across all four data sets. Additionally, training SVM sub problems in 
+Sampled SVM is highly parallelizable. The main advantage of Sampled SVM over the Cascade SVM is the increase in the
+amount of work that is parallelizable. This advantage is particularly acute when the ratio of support vectors to 
+dataset size is large \cite{5}.
+\end{itemize}
+  
+\begin{table}[!h]
+\caption{Comparison of fingerprinting positioning methods in indoor environments} % title of Table
+\centering 
+\begin{tabular}{|l|l|l|l|l|l|}
+  \hline
+  % after \\: \hline or \cline{col1-col2} \cline{col3-col4} ...
+  Method & Accuracy & Precision & Scalability & Complexity & Cost\\ \hline
+   kNN & High & High & Medium & High & High\\ \hline
+   SVM & High & Medium & High & Medium & Medium\\ \hline
+   SMP & High & Medium & Medium & High & High\\ \hline
+   NN & High & High & High & Medium & High\\ \hline
+   BT & High & High & Medium & High & High\\ \hline
+   MC & High & High & Medium & High & High\\ \hline
+ \end{tabular}
+ \label{table:1} % is used to refer this table in the text
+\end{table}
+
+\subsection{Existing System}
+There has been little recent and relevant research on the topic of positioning specialized 
+for AVL by using the terrestrial network infrastructure. An
+algorithm that estimates the speed of a mobile phone placed
+in a vehicle, by correlating the time-series signal strength data
+to a known signal strength trace from the same road, was
+shown in \cite{9}. Results shown therein indicate a median speed
+error of roughly 10 km/h. Another study \cite{10} reports a median
+DE between 10 and 40 m when applying a map-matching
+algorithm (more on map-matching algorithms can be found in
+\cite{11}) onto a time-of-arrival positioning approach in a code-
+division multiple-access system. Finally, in \cite{12}, a neural network 
+was trained with the RSS GSM vector. Kalman-filtering
+and map-matching features were used to form an overlaid
+tracking algorithm aimed to improve initial positioning results.
+After signal postprocessing, the system achieved an accuracy of
+40 m with 67\% confidence (40 m | 67\%) and 95 m | 95\%. This
+algorithm also requires a detailed vectored road map (needed
+for the map-matching process).
+More Positioning Methods are elaborated in \ref{Appendix C} ANNEXURE C.
+
+
+\subsection{Proposed System}
+The RSS levels (RSSI parameters) from cells are periodically
+measured at the Mobile Station in idle mode and could be transferred back
+to the network in the form of RI list report. 
+The set of RSS values obtained at MS, will be
+referred to as the reference inputs (RIs).
+
+
+\begin{figure}[!h]
+\captionsetup{font=scriptsize}
+\begin{center}
+\centerline{\psfig{figure=./4.png,width=5in,height=2.5in}}
+\caption{System Block Diagram.}
+\label{fig:4}
+\end{center}
+\squeezeup
+\end{figure}
+
+Ideally, the MS should be served by the closest node of the
+network. That would invoke the highest probability that an MS
+is served by the cell with the strongest signal and
+the cell with the highest RSS value was used, once the positioning request
+is received, the serving location mobile center (SLMC), based
+on the Cell-ID of the highest reported RSS value for each site, a
+specific positioning model is applied. The model inputs (MIs)
+are RSS values of a particular set of BSs The RI list is then, in SLMC,
+matched with the MIs, which are specific for the area of a
+particular model \cite{1}. The RI values that do not have corresponding
+MIs are discarded, whereas the missing MIs are entered with
+a threshold value of $ -110 dBm.$  This threshold value is the
+minimal value of the RxLev parameter. On the other hand,
+the maximal value of the inputs was $-47 dBm,$ which is the
+maximal value of the RxLev parameter. 
+
+
+The major phases in providing the location estimate are
+given in figure. \ref{fig:4} where the implimented SVM model is trained and tested by the RI list
+for the real time data the location coordinates were predicted.
+
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\chapter{PROBLEM DEFINITION AND SCOPE}
+A problem defination states Project Scope which defines exactly what is in the process. Processes are usually continuous 
+i.e. where one process ends the other one starts immediately.
+
+\section{PROBLEM DEFINITION}
+To develope and study SVM model with the help of kernel fuction for procuring location information in available 
+GSM network which will be helpful in Vehicle Tracking and Positioning with minimum distance error means, 
+to predict the location coordinates in the form of $ (x, y) $ of mobile vehicle in GSM network with greater accuracy.
+\begin{enumerate}
+ \item Received Signal Strength (Recieved Power) is inversly proportional to square of distance from Base Station
+as shown in equation \ref{eq2}.
+\begin{equation}
+ P \propto 1/d^2
+ \label{eq2}
+\end{equation}
+ 
+ \item Environmental characterization is considered with recieved power $ P_r$ where $ P_(d_0) $ is Power at 
+ distance from BS as in equation \ref{eq3}.
+
+\begin{equation}
+P_r = P_(d_0) \div (d / d_0)^n
+ \label{eq3}
+\end{equation}
+where $ 2.0 $ is the path loss component.
+  \item Received Power is Calculated using the following formula \ref{eq4}.
+  \begin{equation}
+    P_r(d) = P_r(d_0) - 10 * n log_(10) (d/d_0)
+ \label{eq4}
+\end{equation}
+ \end{enumerate}
+
+\subsubsection{Training Procedure of SVM}
+The SVM model should be trained by data set. 
+ \begin{enumerate}
+  \item Set up the training data 
+  \item Set up SVM’s parameters
+   \begin{enumerate}
+    \item Type of SVM.
+    \item Type of SVM kernel.
+    \item Termination criteria of the algorithm.
+   \end{enumerate}
+\item Train the SVM
+\item Regions classified by the SVM
+\item Support vectors
+ \end{enumerate}
+
+\section{SYSTEM ARCHITECHTURE}
+The RSS levels (RSSI parameters) from cells are
+periodically measured at the Mobile Station in idle mode and
+could be transferred back to the network in the form of RI list
+report. The set of RSS values obtained at MS will be referred to
+as the reference inputs (RIs). Once the positioning request is
+received, the Hosting Database Server stores all the location
+fingerprints, a specific positioning model is applied. The model
+inputs (MIs) are RSS values of a particular set of BSs. The RI
+list is then, in Location database, matched with the MIs, which
+are specific for the area of a particular model \cite{6}. Application
+server where SVM model is implemented can predict the
+location points. The major phases in providing the location
+estimate are given in figure \ref{fig:sa}.
+
+\begin{figure}[!h]
+\captionsetup{font=scriptsize}
+\begin{center}
+\centerline{\psfig{figure=./System_Architecture.png,width=6in,height=3in}}
+\caption{System Architecture.}
+\label{fig:sa}
+\end{center}
+\squeezeup
+\end{figure}
+
+\section{SCOPE}
+SVM is powerful to approximate any training data and 
+generalizes better on given datasets. The complexity in 
+terms of kernel affects the performance on new datasets.  
+SVM supports parameters for controlling the complexity and 
+above all SVM does not tell us how to set these parameters 
+and we should be able to determine these Parameters by 
+Cross-Validation on the given datasets \cite{2}. The diagram 
+given below gives a better illustration.
+
+\subsection{SVM for Classification}
+SVM is a useful technique for data classification. 
+Even though it’s considered that Neural Networks are easier
+to use than this, however, sometimes unsatisfactory results
+are obtained.  A classification task usually involves with
+training and testing data which consist of some data 
+instances \cite{3}. Each instance in the training set contains
+one target values and several attributes. The goal of SVM is 
+to produce a model which predicts target value of data 
+instances in the testing set which are given only the 
+attributes \cite{15}.
+
+Classification in SVM is an example of Supervised Learning. 
+Known labels help indicate whether the system is performing 
+in a right way or not. This information points to a desired 
+response, validating the accuracy of the system, or be used 
+to help the system learn to act correctly. A step in 
+SVM classification involves identification as which are
+intimately connected to the known classes. This is called
+feature selection or feature extraction. Feature selection 
+and SVM classification together have a use even when prediction
+of unknown samples is not necessary. They can be used to 
+identify key sets which are involved in whatever processes 
+distinguish the classes \cite{15}.
+
+\subsection{SVM for Regression}
+
+SVMs can also be applied to regression problems by the
+introduction of an alternative loss function \cite{15}. 
+The loss function must be modified to include a distance 
+measure. The regression can be linear and non linear.
+Linear models mainly consist of the following loss functions,
+e-intensive loss functions, quadratic and Huber loss function.
+Similarly to classification problems, a non-linear model is
+usually required to adequately model data. In the same manner
+as the non-linear SVC approach, a non-linear mapping can be
+used to map the data into a high dimensional feature space 
+where linear regression is performed. The kernel approach is
+again employed to address the curse of dimensionality. 
+In the regression method there are considerations based on 
+prior knowledge of the problem and the distribution of the 
+noise. In the absence of such information Huber’s robust loss
+function, has been shown to be a good alternative \cite{15}.
+
+\begin{figure}[!h]
+\captionsetup{font=scriptsize}
+\begin{center}
+\centerline{\psfig{figure=./7.png,width=5.5in,height=2.5in}}
+\caption{How to Control Complexity}
+\label{fig:6}
+\end{center}
+\squeezeup
+\end{figure}
+
+\section{PROPOSED ALGORITHM}
+An algorithm is an ordered set of unambiguous, executable steps that defines a terminating process.
+
+The step by step process for predicting Location Coordinate for the proposed system an 
+algorithm \ref{alg1} is given as follows:
+
+\begin{algorithm}[!h]
+\caption{Position Prediction}
+\label{alg1}
+\begin{algorithmic}[1]
+\REQUIRE RI List, Trained Data, SVM model 
+\STATE Positioning Request
+\STATE MS calculates strongest signal strenght and sends it to SLMC (Host Server) where, 
+       MS calculates signal strenght for all nearest BS 
+\STATE SLMC calculates distance for all RSSI values using equations \ref{eq2}, \ref{eq3} and \ref{eq4}
+\STATE SLMC uses SVM model to optimize the coordinate set which satisfies all distance from given RI list
+\STATE Prediction of the location (Display Position Coordinate)
+\end{algorithmic}
+\end{algorithm}
+
+The basic prerequisite for the algorithm is trained and tested SVM Model with the training DatSet, and the
+location information of the vehicle. so that the output of the system is Position of the vehicle on Google Map.
+
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\chapter{DISSERTATION PLAN}
+Planning plays an important role in successful completion of a project. This plan acts as a 
+checklist of the task done. It helps in stating the amount of work to be done in a stipulated period of time. 
+The time chart and can set milestones for project.
+\section{PROJECT WORK BREAKDOWN STRUCTURE (ANALYSIS)}
+A work breakdown structure (WBS), in project management and systems engineering, 
+is a deliverable-oriented decomposition of a project into smaller components.
+\subsection{T1: Communication}
+Software development process starts with the communication between stake holders.
+For developing project requirement were gathered by taking into account of existing
+system and by considering different scenarios.
+\subsection{T2: Planning}
+It included complete cost and effort estimation and scheduling various stages of development
+for the Puzzle based autonomous encoding system.
+\\
+\subsection{T3: Modeling}
+It include detailed requirement analysis for Autonomous encoding system, gathered in the communication 
+stage and project design by using UML practices.
+
+\begin{figure}[h]
+\captionsetup{font=scriptsize}
+\begin{center}
+\centerline{\psfig{figure=./WorkBreakDown.png,width=6in,height=3in}}
+\caption{Project Work Breakdown Structure(Analysis)}
+\end{center}
+\squeezeup
+\end{figure}
+
+\subsection{T4: Risk Management}
+The objectives of risk management are to identify, analyze and give priorities to risk items 
+before they become either threats to successful operation or major sources of expensive software rework, 
+to establish a balanced and integrated strategy for eliminating or reducing the various sources of risk, 
+and to monitor and control the execution of the strategy.\\
+\hspace*{0.3in}RMMM stands for Risk, Mitigation, Monitoring and Management. The RMMM plan documents all the work 
+performed as a part of risk analysis and is used by the project manager as part of the overall project plan.\\
+\hspace*{0.3in}This document highlights the various risks that may be chanced upon while following the software 
+development lifecycle for software development. Here highlights the risks that may affect the smooth working of the 
+project development.\\
+
+\hspace{0.3in}Major Risk types are as follows:
+\begin{itemize}
+\item Project risks - Threaten the project plan, Project had to be completed within time, Reading and learning, 
+requirement analysis were done simultaneously, Work had to be planned properly so that the project finished in time 
+otherwise  project cost would have increased from the estimated value.
+\item Technical risks - Threaten product quality and the timeliness of the schedule.
+\item Known risks - Predictable from careful evaluation of current project plan and those evaluated from 
+past project experience.
+\item Unknown risks - Some problems simply occur regarding security.
+\end{itemize}
+
+\begin{table}[!h]
+\begin{center}
+\caption{Risk Projection}
+\begin{tabular}{| c | c | c | c |}
+\hline 
+{\bf{Risks}} & {\bf{Category}} & {\bf{Probability}} & {\bf{Impact}}\\ 
+\hline 
+Project does not complete on time & Project & 15\% & 3 \\ 
+\hline 
+Inexperience in project sowftware environment & Technical & 5\% & 2 \\ 
+\hline 
+Required resources not available & Project & 30\% & 1 \\ 
+\hline 
+Lack of training on tools & Project & 10\% & 4 \\ 
+\hline 
+Technology does not meet requirement & Project & 10\% & 1 \\ 
+\hline
+Insufficient response for the system & Technical & 30\% & 2 \\ 
+\hline
+\end{tabular}
+\end{center}
+\end{table}
+
+\hspace*{0.3in}These risks are given in the table 3.1 can be monitored in the following ways to prevent their 
+occurrence and thus minimize project failure.
+\begin{itemize}
+\item {\bf Project does not complete on time}\\
+This risk can be eliminated by the formulation of a project plan. Mainly this risk is present due to the other 
+risks which are listed in table. If we could remove other risks it will automatically reduce above risk. 
+This risk may be eliminated by strictly following the project plan for development.
+\item {\bf Inexperience in project software environment}\\
+This risk can be reduced by following all the software engineering principles. By working in a systematic and 
+organized manner and planning the project according to the inputs given by the technical guide. Developer has to figure out 
+the loopholes in the documentation and try and get those corrected and by planning the things in an organized manner.
+\item {\bf Required resources not available}\\
+This risk is due to mismanagement. It can be eliminated by properly examining the requirements and their configurations 
+in advance so that required resources are available on time.
+\item {\bf Lack of training on tools}\\
+This is a risk that is due to inexperience of developing the software. To mitigate this risk, guidance from programmers 
+with an in-depth knowledge of managing and manipulating the required tools can be taken.
+\item {\bf Technology does not meet requirements}\\
+In the event that the technology of database management does not allow all the features expected of it, or the 
+facilities expected of the programming language are not properly supported, this risk involves more time to find 
+an alternative solution to the problem. This increases the time duration of the project. This has been prevented 
+by careful analysis of the system requirements and feasibility before coding starts.
+\item {\bf Insufficient response for the system}\\
+The response time of the system is poor because of low memory and low processing power. This risk is to be mitigated 
+by building high quality software by optimizing resource usage in order to increase the performance.
+\end{itemize}
+
+\section{IMPLEMENTATION PLAN}
+All the tasks in developing the system were carried out by developer. Autonomous encoding of system planned 
+into following stages:
+\begin{enumerate}
+\item Preparing Data
+\item ANN Model \& SVM model
+\item Calculate distance error 
+\item Comparision of both the Model 
+\item Android application (Real-time Data)
+\item Show on Google Map
+\end{enumerate}
+
+\section{PROJECT ESTIMATION}
+Project cost estimation is the process of predicting the amount of efforts required to build a Project.
+It is a continuous activity which can start at the first stage of the software life cycle and continues
+through the developing time.
+
+\subsection{Estimation of KLOC:}
+The no of lines required for implementation of various modules can be estimated as shown in Table 3.2.
+Thus the total number of lines required is approximately 2.338 KLOC.\\
+
+{\bf Efforts:}
+\begin{table}[!h]
+\begin{center}
+\caption{Estimation in KLOC} 
+\begin{tabular}{| c | c | c |}
+\hline 
+{\bf{Sr.No.}} & {\bf{Function}} & {\bf{Estimated KLOC}}\\ 
+\hline 
+1 & Preparing Data & 0.292 \\ 
+\hline 
+2 & ANN Model \& SVM model  & 0.403 \\ 
+\hline 
+3 & Calculate distance error & 0.136 \\ 
+\hline 
+4 & Comparision of both the Model & 0.509 \\ 
+\hline 
+5 & android application (Real-time Data) & 0.479 \\ 
+\hline 
+6 & Show on Google Map & 0.519 \\ 
+\hline
+  & {\bf Total KLOC} & {\bf2.338} \\
+\hline
+\end{tabular}
+\end{center}
+\end{table}
+
+The effort taken is calculated by the formula.
+
+$$ E = 3.2 * (KLOC)^{1.05} $$
+$$ E = 3.2 * (2.338)^{1.05} $$
+$$ E =  7.806146733 $$
+
+Approximate 8 persons/month 
+
+The development time in months is calculated by the formula:
+$$ D = 2.5 * (E)^{0.38} $$
+$$ D = 2.5 * (8.18)^{0.38} $$
+$$ D = 5.458407546  $$
+
+Approximate 5.5 months 
+
+The recommended number of people is calculated by the formula:
+$$ N = E/D $$
+$$ N = 7.806146733/5.458407546 persons $$
+$$ N = 1.430114308 $$
+
+Approximate 2 Person 
+
+According to recommendation of person for development and development time
+consideration as number of person of development is $1,$ so it leads to increase the
+development time from  5.5 months  to  11 months.
+
+\section{PROJECT PLAN}
+Scheduling of a software project does not differ greatly from scheduling of any multitask effort.
+Therefore, generalized, project scheduling tools and techniques can be applied to project with little modifications. 
+The project schedule provides a road map for a project manager. If it has been properly developed, the project schedule 
+defines the tasks and milestones that must be tracked and controlled as the project proceed. The table \ref{tab2} shows 
+planning and scheduling of the project.
+
+\begin{table}[!h]
+\begin{center}
+\caption{Scheduling of Project}
+\label{tab2}
+\begin{tabular}{| p{6cm} | c | c |}
+\hline 
+{\bf{Activity}} & {\bf{Start Date}} & {\bf{End Date}}\\ 
+\hline 
+Project Allotment & 19 July,2013 & -------- \\ 
+\hline 
+Literature survey & 20 July 2013 & 27 July 2013\\ 
+\hline 
+Data gathering and analysis & 1 August 2013 & 20 August 2013\\ 
+\hline 
+Design Documentation & 21 August 2013 & 19 Sept. 2013\\ 
+\hline 
+Study of JAVA platform & 19 Sept. 2013 & 29 Sept. 2013\\ 
+\hline 
+GUI Design & 1 Oct 2013 & 15 Oct 2013\\ 
+\hline 
+$1^{st}$ Prototype of system & 16 Oct 2013 & 15Nov 2013\\ 
+\hline 
+Design and documentation Revision Identification of problem & 16 Nov 2013 & 3 Jan 2014\\ 
+\hline 
+Addition of New GUI & 16 Jan 2014 & 26 Jan 2014\\ 
+\hline 
+Implementation of Revised Design & 2 Feb 2014 & 15 Feb 2014\\
+\hline 
+Testing and Bug Fixing & 16 Feb 2014 & 28 Feb 2014\\ 
+\hline 
+Demonstration to project Guide & 1 March 2014 & 20 March 2014\\ 
+\hline 
+Implementation of Few suggestions by project Guide &  25 March 2014 &  20 April 2014\\ 
+\hline 
+Final Document Preparation & 24 April 2014 & 15 July 2014\\  
+\hline
+\end{tabular}
+\end{center}
+\end{table}
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\chapter{SOFTWARE REQUIREMENT SPECIFICATION}
+A software requirements specification (SRS) is a requirements specification for a software system. 
+It is a description of the behavior of a system which is going to developed and may include a set of use cases 
+that describe interactions of the users with the software system. 
+
+In addition it also contains non-functional requirements. SRS describe the intended purpose and environment 
+for software under development. The SRS fully describes the questions below.
+\begin{itemize}
+ \item What the software will do? and
+ \item How it will be expected to perform?.
+\end{itemize}
+
+\section{PURPOSE AND SCOPE}
+The purpose of Software Requirements Specification (SRS) document is to describe the
+external behavior of the System. Requirements Specification defines and describes the
+operations, interfaces, performance, and quality assurance requirements of System. The
+document also describes the non functional requirements such as the user interfaces. 
+The Software Requirements Specification (SRS) captures the
+complete software requirements for the system, or a portion of the system.
+
+\subsection{Usability}
+Usability requirements include any special or unique requirements that identify and define
+human-factor considerations and constraints (e.g., design space limits, climatic limits, eye
+movement, reach, ergonomics, cognitive limits, and usability) that affect operation of the
+software.
+
+ Enable the Location Services for the Android Application to send the Location Information to the Host Server.
+
+ \subsection{Interfaces}
+Describe the logical characteristics of each interface between the application and other
+hardware, software, and communication protocols.
+
+\subsubsection{User Interface}
+User interface is needed for communication between system and the user. System has attractive and be user friendly GUI 
+through which any kind of user can easily Track and Locate the Vehicle in GSM Network and can generate analysis of results.
+
+\subsubsection{Software Interface}
+Software interfaces are provided with NetBeans IDE and explained in next Chapter that is ``HIGH LEVEL DESIGN DOCUMENT''.
+
+\section{REQUIREMENT SPECIFICATION}
+Requirements are the desired characteristics of the software being developed. The first activity in most projects 
+is the identification and documentation of the requirements. Requirements cover both requirements engineering 
+(identification, analysis and capture) and requirements management (managing change, creating and maintaining agreement 
+with customers, trace ability and metrics). The development of large, complex systems presents many challenges to 
+systems engineers. Foremost among these is the ability to ensure that the final system satisfies the needs of 
+users and provide for easy maintenance and enhancement of these systems during their deployed lifetime. These 
+systems often change and evolve throughout their life cycle. This makes it difficult to track the implemented system 
+against the original and evolving user requirements.
+
+The following requirements and constraints were considered during the requirement analysis phase.
+
+\subsection{Product Performance Requirements}
+Input to the system is Tracking Request of the Vehicle meanwhile the Location Information of the Vehicle is Updated at 
+Location Database of Hosting Server which is fetched at Application Server by sending a request.
+
+The Located Position of the Vehicle should be more precised
+
+\subsection{User Requirements}
+User requires accurate results in less time. 
+It should be made by optimizing the SVM model.
+System should be easy to handle and effective.
+
+\subsection{Functional Requirements}
+Requirements analysis is critical to the success of a systems or software project 
+The requirements should be documented, actionable, measurable, testable, traceable, related to 
+identified business needs or opportunities, and defined to a level of detail sufficient for system design.
+
+The system should able to perform Encoding, Decoding, Interleaving, Deinterleaving operation for 
+that we required functional requirement as Java development kit or NetBeans IDE.
+
+\subsection{Non-functional Requirements}
+The design should be user friendly, There should be a logger in order to track the activities on the Host server, 
+There should be no GSM range failure for Application to work, The System user should know the Vehicle Identity \&
+Internet Connectivity.
+
+\subsection{Software Requirements}
+\hspace*{0.6in}{\bf Software}\hspace*{2in}{\bf Version}\\
+\hspace*{0.6in}{JDK}\hspace*{2.4in}{1.7.0}\\
+\hspace*{0.6in}{NetBeans IDE}\hspace*{1.7in}{7.3}\\
+\hspace*{0.6in}{Android SDK}\hspace*{1.7in}{ 22.6}
+
+\subsection{Hardware Requirements}
+\hspace*{0.6in}{\bf Requirements}\hspace*{1.6in}{\bf Specifications}\\
+\hspace*{0.6in}Processor	\hspace*{1.97in} intel CORE i3, i5\\
+\hspace*{0.6in}RAM\hspace*{2.36in} 4 GB\\
+\hspace*{0.6in}HDD\hspace*{2.36in} 500 GB \\
+\hspace*{0.6in}Operating System\hspace*{1.45in}Windows 7
+
+\section{ANALYSIS MODELS}
+The analysis model describes the structure of the system. It provides the first technical representation of a system.
+\subsection{Data Flow Diagram}
+Data Flow Diagram(DFD) is also called as Bubble Chart is a graphical technique, which
+is used to represent information flow, and transformer those are applied when data moves from input to output.
+At the lowest level of system data flow analysis, It can see that the user will give some input to software system and 
+the required data will be extracted by system.\\
+
+Data Flow Diagrams serves two purposes: 
+\begin{enumerate}
+ \item to provide an indication of how data are transformed as they move through the system and
+ \item to depict the functions that transform the data flow.
+\end{enumerate}
+  
+The DFD provides additional information that is used during the analysis of the information domain and 
+serves as a basis for the modeling of function. A description for each function presented in the DFD is 
+contained in a process specification.\\
+
+A DFD shows what kinds of information will be input to and output from the system,
+where the data will come from and go to, and where the data will be stored. It does not show
+information about the timing of processes, or information about whether processes will
+operate in sequence or in parallel.
+
+Following Figure \ref{DFD0}, is the DFD level 0 which shows the interaction between the
+User and Mobile Vehicle through the system that is been implemented. 
+
+\begin{figure}[!h]
+\captionsetup{font=scriptsize}
+\begin{center}
+\centerline{\psfig{figure=./DFD0.png,width=5in,height=1.5in}}
+\caption{Data Flow Diagram (Level 0)}
+\label{DFD0}
+\end{center}
+\end{figure}
+
+The location data is sent from Mobile to Host Server to fetch via the proposed SVM Model, and 
+by parsing the input data the system is trained. so that it could track the vehicle as shown in figure \ref{DFD1}, 
+
+\begin{figure}[!h]
+\captionsetup{font=scriptsize}
+\begin{center}
+\centerline{\psfig{figure=./DFD1.png,width=5in,height=4in}}
+\caption{Data Flow Diagram (Level 1)}
+\label{DFD1}
+\end{center}
+\end{figure}
+
+The DFD level 2 figure \ref{DFD2} of the system where the data flow from the Mobile Vehicle to User and User to the 
+output  of the system i.e. Tracked Vehicle is shown.
+
+\begin{figure}[!h]
+\captionsetup{font=scriptsize}
+\begin{center}
+\centerline{\psfig{figure=./DFD2.png,width=5in,height=4in}}
+\caption{Data Flow Diagram (Level 2)}
+\label{DFD2}
+\end{center}
+\end{figure}
+
+\newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\chapter{HIGH LEVEL DESIGN DOCUMENT}
+High-level design provides an overview of an entire system, identifying all its elements at some level of abstraction.
+This chapter Disscuss the Mathematical Model, Technical Specification and UML diagrams.
+\section{MATHEMATICAL MODEL}
+Let $S$ be a Implimented system which Locate the Mobile in GSM Network $$S=\{I,F,O\}$$
+
+Where,
+$I$ represents the set of inputs\\
+$I$ = $I1, I2, I3, I4, I5$\\
+$I1$ = Radio Signal Strenght (RSS)\\
+$I2$ = Mobile Country Code (MCC)\\
+$I3$ = Mobile Network Code (MNC)\\
+$I4$ = Location Area Code (LAC)\\
+$I4$ = Cell\_id \\
+
+And $F$ is the set of function uses kernel trick to classification\\
+$F$ = $F1, F2, F3,$\\
+$F1$ = Create SVM\\
+$F2$ = Train SVM\\
+$F3$ = Test SVM\\
+
+And $O$ is the set of outputs shows the Location\\
+$O$ = $O1,O2$\\
+$O1$ = Longitute\\
+$O2$ = Latitude\\
+
+\section{TECHNICAL SPECIFICATION}
+In this section different technologies used for implimentation of the system are disscussed.
+\subsection{Java Technology}
+Java technology is both a programming language and a platform.
+The Java programming language is a high-level language that can be characterized by all of the following buzzwords: 
+\begin{itemize}
+\item Simple
+\item Architecture neutral
+\item Object oriented
+\item Portable
+\item Distributed	
+\item High performance
+\item Interpreted	
+\item Multithreaded
+\item Robust
+\item Dynamic
+\item Secure
+\end{itemize}	
+
+With most programming languages, developer either compile or interpret a program so that he/she can 
+run it on his/her computer. The Java programming language is unusual in that a program is both compiled and
+interpreted. With the compiler, first developer translate a program into an intermediate language called Java
+byte codes the platform-independent codes interpreted by the interpreter on the Java platform. 
+The interpreter parses and runs each Java byte code instruction on the computer. Compilation happens 
+just once; interpretation occurs each time the program is executed.\\
+
+Developer can think of Java byte codes as the machine code instructions for the 
+Java Virtual Machine (Java VM). Every Java interpreter, whether it’s a development tool or
+a Web browser that can run applets, is an implementation of the Java VM. Java byte codes help 
+make “write once, run anywhere” possible. Developer can compile program into byte codes on any platform 
+that has a Java compiler. The byte codes can then be run on any implementation of the Java VM. 
+
+The Java platform has two components: 
+\begin{itemize}
+\item The Java Virtual Machine (Java VM) 
+\item The Java Application Programming Interface (Java API) 
+\end{itemize}
+
+Java VM is the base for the Java platform and 
+is ported onto various hardware-based platforms. The Java API is a large collection of ready-made software 
+components that provides many useful capabilities, such as graphical user interface (GUI) widgets. The Java
+API is grouped into libraries of related classes and interfaces; these libraries are known as packages. \\
+
+Native code is code that after developer compile it, the compiled code runs on a specific hardware 
+platform. As a platform-independent environment, the Java platform can be a bit slower than native code.
+However, smart compilers, well-tuned interpreters, and just-in-time byte code compilers can bring
+performance close to that of native code without threatening portability. \\
+
+Every full implementation of the Java platform gives the following features: 
+
+\begin{itemize}
+\item The essentials: Objects, strings, threads, numbers, input and output, data structures, system properties, 
+date and time, and so on. 
+\item Applets: The set of conventions used by applets. 
+\item Networking: URLs, TCP (Transmission Control Protocol), UDP (User Data gram Protocol) sockets, and IP
+(Internet Protocol) addresses. 
+\item Internationalization: Help for writing programs that can be localized for users worldwide. Programs can
+automatically adapt to specific locales and be displayed in the appropriate language. 
+\item Security: Both low level and high level, including electronic signatures, public and private key management, 
+access control, and certificates. 
+\item Software components: Known as JavaBeansTM, can plug into existing component architectures. 
+\item Object serialization: Allows lightweight persistence and communication via Remote Method Invocation (RMI). 
+\item Java Database Connectivity (JDBCTM): Provides uniform access to a wide range of relational databases. 
+\end{itemize}
+
+The Java platform also has APIs for 2D and 3D graphics, accessibility, servers, collaboration, telephony, 
+speech, animation, and more. 
+
+\subsection{Advanced Technology Used}
+
+\begin{enumerate}
+{\bf \item Encog} 
+is an advanced machine learning framework that supports a variety of advanced algorithm, 
+as well as support classes to normalize and process data. Machine learning algorithm such as Support Vector Machines,
+Artificial Neural Networks, Genetic Programming, Bayesian Networks, Hidden Markov Models and Genetic Algorithm are 
+supported. Most Encog training algorithm are multi-threaded and scale well to multicore hardware. Encog can also make
+use of a GPU to further speed processing time. A GUI based workbench is also provided to help model and train machine
+learning algorithms. Encog has been in active development since 2008.
+
+{\bf \item jsoup} is a Java library for working with real-world HTML. It provides a very convenient 
+API for extracting and manipulating data, using the best of DOM, CSS, and jquery-like methods.
+jsoup implements the WHATWG HTML5 specification, and parses HTML to the same DOM as modern browsers do.
+\begin{itemize}
+ \item scrape and parse HTML from a URL, file, or string 
+ \item find and extract data, using DOM traversal or CSS selectors
+ \item manipulate the HTML elements, attributes, and text
+ \item clean user-submitted content against a safe white-list, to prevent XSS attacks
+ \item output tidy HTML
+\end{itemize}
+jsoup is designed to deal with all varieties of HTML found in the wild; from pristine and validating, to 
+invalid tag-soup; jsoup will create a sensible parse tree.
+
+{\bf \item TelephonyManager}Provides access to information about the telephony services on the device. 
+Applications can use the methods in this class to determine telephony services and states, as well as to access 
+some types of subscriber information. Applications can also register a listener to receive notification of telephony
+state changes.
+
+Developer do not instantiate this class directly; instead of retrieving a reference to an instance through
+
+Context\.getSystemService(Context\.TELEPHONY\_SERVICE)
+
+Access to some telephony information is permission-protected. 
+Application cannot access the protected information unless it has the appropriate permissions 
+declared in its manifest file. Where permissions apply, they are noted in the the methods through 
+which access the protected information. 
+\end{enumerate}
+
+\section{UML DIAGRAMS}
+
+UML stands for Unified Modeling Language which is used in object oriented software engineering. 
+UML is designed to provide a standard way to visualize the design of a system.
+
+\subsection{Use Case Diagram}
+The use case view models functionality of the system as perceived by outside user. Use case 
+is a coherent unit of functionality expressed as a transaction among actors and a system. Use Case Diagrams 
+are useful for modeling the dynamic aspects of the systems. Use case diagrams are central to modeling the 
+behavior of the system, a subsystem or a class. They show a set of use cases and actors and their relationships. 
+Use Case Diagrams commonly contain the following:
+\begin{itemize}
+\item Use cases.
+\item Actors.
+\item Dependency, generalization, and association relationships.
+\end{itemize}
+\squeezeup
+\begin{figure}[!h]
+\captionsetup{font=scriptsize}
+\begin{center}
+\centerline{\psfig{figure=./UseCase.png,width=6in,height=6in}}
+\caption{Use Case Diagram}
+\end{center}
+\squeezeup
+\end{figure}
+\squeezeup
+
+\subsection{Class Diagram}
+The class diagram is the main building block of object oriented modeling. It is used both for 
+general conceptual modeling of the systematic of the application, and for detailed modeling translating the 
+models into programming code. Class diagrams can also be used for data modeling. The classes in a class diagram 
+represent both the main objects, interactions in the application and the classes to be programmed.
+
+\begin{figure}[!h]
+\captionsetup{font=scriptsize}
+\begin{center}
+\centerline{\psfig{figure=./class.png,width=6in,height=5in}}
+\caption{Class Diagram}
+\end{center}
+\squeezeup
+\end{figure}
+\squeezeup
+
+\subsection{Sequence Diagram}
+A sequence diagram is graphical view of a scenario that shows object interaction in time based 
+sequence. What happens first, what happens next sequence diagram establish the roles of object and help provide 
+essential information to determine class responsibilities and interface.
+\squeezeup
+\begin{figure}[!h]
+\captionsetup{font=scriptsize}
+\begin{center}
+\centerline{\psfig{figure=./Sequence.png,width=6in,height=8in}}
+\caption{Sequence Diagram}
+\end{center}
+\squeezeup
+\end{figure}
+\squeezeup
+\newpage
+\subsection{Activity Diagram}
+Activity diagrams are graphical representations of workflows of stepwise activities and actions 
+with support for choice, iteration and concurrency. 
+
+\begin{figure}[!h]
+\captionsetup{font=scriptsize}
+\begin{center}
+\centerline{\psfig{figure=./Activity.png,width=6in,height=6.5in}}
+\caption{Activity Diagram}
+\end{center}
+\squeezeup
+\end{figure}
+\squeezeup
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\chapter{TEST SPECIFICATION}
+A summary of what scenarios will be tested, 
+how they will be tested, 
+how often they will be tested, 
+and so on.
+\section{INTRODUCTION}
+Testing is an important phase in the Software Development Life Cycle. Testing should be planned 
+and conducted systematically.\\
+Generic aspects of a test strategy
+\begin{itemize}
+\item Testing begins at the module level and works outwards.
+\item Different testing techniques are used at different points of time.
+\item Testing is done by developers and mainly for larger projects, by an independent test group.
+\item Testing and debugging are two different activities, but debugging should be incorporated into any testing strategy.
+\end{itemize}
+\subsection{Unit Testing}
+It involves testing the minimum functionality of the smallest unit of software design – the modules. 
+Using the design specification documentation as the guide, important control paths are tested to uncover errors
+within the boundary of the module. This module level testing involves heavy use of white box testing techniques. 
+Specific paths are exercised in the modules control structures for complete coverage and maximum error detection. 
+This testing can be conducted in parallel for multiple modules.
+\subsection{Integrated Testing}
+Integration testing is a systematic technique for constructing the program structure while conducting 
+tests to uncover errors associated with interfacing. The objective is to take unit tested module and build a program 
+structure that has been dictated by design.
+It involves testing functionality of the modules with respect to the other modules, with which the
+module is supposed to interact. There is heavy use of black box testing techniques and some use of white box testing 
+techniques to ensure coverage of major control paths .
+\subsection{Black Box Testing}
+Black box testing focuses on the functional requirements of the software. That is, black box testing 
+enables the software engineer to derive sets of input conditions that will fully exercise all functional requirements 
+for a program. Black box testing is not an alternative to white box testing techniques; rather it is a complementary
+approach that is likely to uncover a different class of errors than white box methods. Black box testing attempts 
+to find errors in the following categories.
+\begin{itemize}
+\item Incorrect or missing functions.
+\item Interface errors.
+\item Errors in data structures or external database access.
+\item Performance errors.
+\item Initialization and termination errors
+Black box testing purposely disregards control structure, attention is focused on the information domain.
+\end{itemize}
+\subsection{White Box Testing}
+Using white box testing methods, the software engineer can derive test cases that can Guarantee that 
+all dependent paths within a module have been exercised at least once.
+\begin{itemize}
+\item Exercise all logical decisions on their true and false sides.
+\item Execute all loops at their boundaries and within their operational bounds
+\item Exercise internal data structures to assure their validity.
+\end{itemize}
+Here used a Black Box Testing. It is also called behavioral testing which focuses on functional 
+requirements of the software. In this testing the software is tested as a black box without considering its internal
+details. Required sets of input were supplied and the desired outputs are obtained.
+
+\section{TEST CASES}
+
+The GUI and click button's validation resutls are tested as shown in following table.
+Different test case are generated in following table \ref{testt}.
+
+\squeezeup
+\begin{table}[!h]
+\begin{center}
+\caption{Test Cases}
+\label{testt}
+\begin{tabular}{| p{1.5cm} | p{2.2cm} | p{3.5cm} | p{2.5cm} | p{2.5cm} | c |}
+\hline 
+{\bf{Test Case\_ID}} & {\bf{Objectives}} & {\bf{Steps}} & {\bf{Expected O/P}} & {\bf{Observed O/P}} & {\bf{Result}}\\ 
+\hline 
+1 & {Track Vehicle} & {1)Execute Source, Main \item 2)Enter Mobile IMEI No. \item 3)Click on Track Vehicle.} 
+& All the Parameters for Location Information Should Display & All the Parameters for Location Information Displayed & Pass\\ 
+\hline 
+2  & {Show On Google Map}& {1)Execute Source, \item 2)Enter Mobile IMEI No. \item 3)Click on Track Vehicle. 
+\item 4)Click Show on Map } & Location of the Mobile Should be display on google map & Location of the mobile is displayed 
+on google map & Pass\\
+\hline
+3  & {Distance  Calculated by SVM and ANN Respectively}& {1)Execute Source, \item 2)Enter Mobile IMEI No. 
+\item 3)Click on Track Vehicle. \item 4)Click Distance calculated by SVM and ANN respectively } & 
+Distance in meters should Display & Distance in meters Displayed & Pass\\
+\hline
+4  & {Send Location Information to host server} & {1)Execute android\_app from mobile, \item 2)Click on Get} & 
+Location Information of the Mobile Should be send to Host Sever & Location Information of the Mobile is successfully 
+send to Host Sever & Pass\\
+\hline
+\end{tabular}
+\end{center}
+\end{table}
+\newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\chapter{IMPLEMENTATION RESULTS }
+In this chapter The Step by Step execution of The Project and The Results obtained are disscussed.
+Data set used for training is also described.
+
+\section{DATA SET}
+Training and Testing of the ANN as well as SVM is done by the DATA SET \ref{Appendix D} ANNEXURE D. available at on web resourse 
+where the xml data is parse into the required input parameters and then The Classifier model is trained 
+for training normalized values of input parameters are used.
+Normalization is done by the following \ref{eq7}
+\begin{equation}
+Normalize (x)=(x-Min(x))\div(Max(x)-Min(x)) 
+\label{eq7}
+\end{equation}
+
+Location Information of the vehicle at the Host Sever Database is \ref{Appendix D} updated by using android app 
+installed in mobile device. 
+
+\section{SNAPSHOTS}
+\begin{itemize}
+ \item Graphical User Interface for tracking the vehicle.
+ \item The Tracked Vehicle located on Google Map.
+ \item The Android Application developed for sharing the Location Information.
+ \end{itemize}
+
+\squeezeup
+\begin{figure}[!h]
+\captionsetup{font=scriptsize}
+\begin{center}
+\centerline{\psfig{figure=./GUI.png,width=6in,height=4.5in}}
+\caption{Graphical User Interface (GUI)}
+\end{center}
+\squeezeup
+\end{figure}
+
+\begin{figure}[!h]
+\captionsetup{font=scriptsize}
+\begin{center}
+\centerline{\psfig{figure=./Tracked_Vehicle.png,width=6in,height=4in}}
+\caption{Location of the Tracked Vehicle on GMAP}
+\end{center}
+\squeezeup
+\end{figure}
+\squeezeup
+
+\begin{figure}[!h]
+\captionsetup{font=scriptsize}
+\begin{center}
+\centerline{\psfig{figure=./android_app.png,width=4in,height=6in}}
+\caption{Android Application}
+\end{center}
+\squeezeup
+\end{figure}
+\squeezeup
+\newpage
+
+\section{GRAPHICAL RESULT}
+\begin{itemize}
+ \item Comparision of ANN and SVM shown in Figure \ref{chart1}
+ in this graph black line shows the ideal distance which is calculated by the standard formula applied in GSM network
+ \ref{eq8} while the red line shows the distance obtain by SVM model and the Blue Line shows the Distance by ANN model.
+\begin{equation}
+ distance = [10^{((27.55 - (20 * log10(frequency)) - signalLevel)/20)}]
+\label{eq8}
+ \end{equation}
+ 
+Here, the Comparision shows that the SVM line is very close to the IDEAL Distance line than the ANN line which shows the SVM 
+achieving the more accuracy than the ANN.
+
+\begin{figure}[!h]
+\captionsetup{font=scriptsize}
+\begin{center}
+\centerline{\psfig{figure=./chart1.jpg,width=6.5in,height=4.5in}}
+\caption{Comparision of ANN and SVM}
+\label{chart1}
+\end{center}
+\end{figure}
+
+\item Figure \ref{chart2} Shows the Probability Distribution Function (PDF)
+
+\begin{figure}[!h]
+\captionsetup{font=scriptsize}
+\begin{center}
+\centerline{\psfig{figure=./chart2.jpg,width=6.5in,height=4.5in}}
+\caption{Probability Distribution Function}
+\label{chart2}
+\end{center}
+\end{figure}
+
+\item Figure \ref{chart3} Shows the Cumulative Distribution Function(CDF)
+\begin{figure}[!h]
+\captionsetup{font=scriptsize}
+\begin{center}
+\centerline{\psfig{figure=./chart2.jpg,width=6.5in,height=4.5in}}
+\caption{Cumulative Distribution Function}
+\label{chart3}
+\end{center}
+\end{figure}
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\chapter{CONCLUSION}
+Support Vector Machine, k-Nearest Neighbor, Neural Networks, Decision Tree, and many others are 
+Supervised learning algorithms which are used to solve supervised learning problem. 
+But what makes SVM interesting is the ability to classify complex problems having
+linearly non separable cases with nonlinear decision boundary and its ability to find the optimum nonlinear
+decision boundary. Using SVM system model will not get any arbitrary nonlinear decision boundary to separate 
+the classes in the training data set. 
+
+In fact, SVM algorithm will give the optimum linear separation in high dimensional feature space that will be the 
+equivalent to the optimum non-linear decision boundary in the original data set. SVM has some major features such as
+convexity, duality, kernels, and sparseness used in Machine Learning. The Support Vector Machine algorithm
+displays a very low error rate when used for regression (spatial localization). 
+
+The SVM based model could be designed such a way that it will procure location information in a GSM Network. 
+Performance of SVM is fully depends on Kernel functions. The standared deviation Calculated for SVM classifier
+is 8\% which is lower than the standared deviation Calculated for ANN that is 20\%.
+
+In future a technique for choosing and developing a Kernel Function and monolithic control system for
+predicating data from small training data sets has great scope.
+
+
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\chapter{FUTURE ENHANCEMENT}
+The future option for this Disssertation is to use an Enhanced Extreme Learning Machine in the Intelligent 
+Transportation System. 
+
+The Use of Support Vector Machine would provide even better results horeover the training time and the accuracy of the 
+system would also be improved by using Kernel Trick.
+
+In addition to SVM, algorithms like k-NN, k-means etc can also be used to overcome the limitation of this project for 
+more precise and accurate classification. 
+
+For Mutlti-class classification using SVM a new approach could be provided and continuous Tracking and monitoring of the 
+Vehicle in GSM network will be possible to provide Location Based Services. 
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\addcontentsline{toc}{chapter}{Appendix A}
+\chapter*{ANNEXURE A: PAPER PUBLISHED}
+\label{Appendix A}
+\begin{enumerate}
+\item Mr. Aher Chetan Nimba, Prof. Abhijit Adhikari, 
+``SVM: The Qualitative and Quantitative Monolithic Predictor'', 
+International Journal of Science and Research vol. 2. issue 11. ISSN (Online): 2319-7064
+\item Mr. Aher Chetan Nimba, Prof. D. N. Rewadkar,
+``SVM Based Optimized Model for Vehicle Tracking and Positioning in GSM Network'',{\it c-PGCON 2014 at}.,  
+Matoshri College of Engineering, Nashik., Maharashtra on 28 March; 2014.
+\item Mr. Aher Chetan Nimba, Prof. D. N. Rewadkar,
+``Vehicle Tracking and Positioning in GSM Network Using Optimized SVM Model'',
+{\it International Conference on Current Trends in Engineering and Technology (ICCTET) 2014 at}.,  
+Akshaya College of Engineering \& Technology, Coimbatore., Tamil Nadu on 8 July; 2014.
+\end{enumerate}
+\newpage
+\newpage
+\includepdf[scale=0.9, pages={1-4}]{IJSR.pdf}
+\newpage
+\includepdf[scale=0.9, pages={1}]{IJSR_cer.pdf}
+\newpage
+\addcontentsline{toc}{chapter}{Appendix B}
+\chapter*{ANNEXURE B: STATISTICAL LEARNING THEORY}
+\label{Appendix B}
+\begin{itemize}
+ \item Statistical Learning Theory 
+\end{itemize}
+The statistical learning theory provides a framework for studying the problem of gaining
+knowledge, making predictions, making decisions from a set of data. In simple terms, it
+enables the choosing of the hyper plane space such a way that it closely represents the
+underlying function in the target space.
+In statistical learning theory the problem of supervised learning is formulated as follows.
+We are given a set of training data $ {(x1,y1) \ldots (x1,y1)}  $ in $ R^n \times R $   
+sampled according to unknown probability distribution $ P(x,y),$ and a loss function $ V(y,f(x)) $
+that measures the error, for a given $ x, f(x) $ is ``predicted'' instead of the actual value $ y. $
+The problem consists in finding a function $ f $ that minimizes the expectation of the error on new data that is, 
+finding a function $ f $ that minimizes the expected error: 
+\begin{equation}
+ \int V(y, f(x)) P(x, y) dx dy
+\end{equation}
+
+In statistical modeling we would choose a model from the hypothesis space, which is
+closest (with respect to some error measure) to the underlying function in the target space.
+More on statistical learning theory can be found on introduction to statistical learning theory
+
+\begin{itemize}
+ \item Learning and Generalization 
+\end{itemize}
+Early machine learning algorithms aimed to learn representations of simple functions. 
+Hence, the goal of learning was to output a hypothesis that performed the correct classification 
+of the training data and early learning algorithms were designed to find such an accurate fit to 
+the data. The ability of a hypothesis to correctly classify data not in the training set is 
+known as its generalization. SVM performs better in term of not over generalization when the neural 
+networks might end up over generalizing easily. Another thing to observe is to find where to make 
+the best trade-off in trading complexity with the number of epochs; the illustration brings to light more 
+information about this. 
+
+\begin{figure}[!h]
+\captionsetup{font=scriptsize}
+\begin{center}
+\centerline{\psfig{figure=./1.png,width=5in,height=3in}}
+\caption{Number of Epochs vs Complexity.}
+\label{fig:1}
+\end{center}
+\end{figure}
+
+\addcontentsline{toc}{chapter}{Appendix C}
+\chapter*{ANNEXURE C: POSITIONING TECHNIQUES}
+\label{Appendix C}
+\begin{itemize}
+\item GPS Based Positioning
+\end{itemize}
+Since the introduction of the GPS, researchers have tended
+to focus on its use for AVL systems, often with little or no
+regards to its limitations. Recent research studies have usually
+attempted lane-level positioning. In \cite{6}, an interesting method
+of acquiring digital road maps from aerial imagery was illustrated. 
+Using differential GPS (DGPS) with the obtained precise
+digital road maps and a map-matching algorithm produced a
+lane-level AVL that is capable of correct lane estimation 97\%
+of the time. Another approach to lane recognition integrates the
+use of GPS and INS with the vision technologies \cite{6}. However,
+the benefits of using lane-level AVL systems in terms of fleet
+management, such as detecting that a vehicle has pulled off to
+the shoulder or the dwell time of a bus when it has pulled into
+a specific bus stop, are arguable. That is, most of these situations 
+can be successfully detected by using only the position
+(excluding the lane information) and speed information, adequate digital road map 
+(e.g., containing bus stops as points of interest), and proper detection algorithms. Moreover, lane-level
+AVL systems require more precise digital road maps, whose
+production may be tedious and expensive on a large scale.
+
+\begin{itemize}
+ \item GSM Based Positioning
+\end{itemize}
+GPS service can become unavailable due to a number of
+reasons. On the other hand, given that GSM is the most
+widely deployed PLMN and that most of the modern AVL
+systems already employ PLMN packet services (i.e., GPRS in
+case of GSM) for fleet-tracking information \cite{6}, developing
+a GSM positioning and AVL system makes additional sense.
+General positioning in PLMN, without special emphasis on
+AVL application, has been the focus of many research papers.
+The most basic GSM-based techniques are founded on serving
+cell identification (Cell-ID). This way, the mobile station
+(MS) can be located with the accuracy given by the cell radius.
+Bearing in mind that the cell radius may be up to 35 km, it
+becomes obvious that this technique does not grant preferable
+accuracy. On the other hand, it is considered to be the simplest
+technique within GSM-based positioning systems. Various non-
+standardized augmentations to this plain technique have been
+made. Adaptive enhanced Cell-ID is a self-learning method that
+uses GPS or other precise position estimates when available,
+together with fingerprinting radio measurements, to populate
+the fingerprinting database. The method can combine Cell-ID
+with other information such as RSS and timing measurements.
+This approach has yielded a 20\% - 50\% reduction in the size
+of the area where the user equipment is located with respect
+to basic Cell-ID positioning techniques. In \cite{ref15}, this method’s
+field results are reported.
+
+Most of the other positioning algorithms enrich the Cell-ID
+information only with RSS measurements. Simulation results
+using statistical modeling of RSS achieved an accuracy
+of 320 m | 67\%, which is 70\% - 75\% better than the basic
+Cell-ID technique’s accuracy. Although this technique does not
+require field measurements to be taken, it requires knowledge
+of such data as base station positions, transmitted powers, and
+antenna directions in return. Genetic algorithms were employed
+in the urban environment with UMTS network coverage \cite{6},
+resulting in an accuracy of 450 m | 72\%. Other work, using the
+database correlation algorithm and the fingerprint database constructed 
+from the radio coverage prediction tool, achieved
+an accuracy of 483 m | 67\% in the residential environment. The
+system model uses a well-known nearest neighbor algorithm with the
+following metric:
+\begin{equation}
+ d(k)=\sum_{i} (f_{i}-g_{i}(k))^2 + p(k)
+ \end{equation}
+where $f_i$ is the RSS measured by the MS on the $i^{th}$ channel,
+$g_i (k)$ is the signal strength of the $k^{th}$ database fingerprint on
+the same channel, i refers to the number of channels, and $p(k)$
+is the penalty term to account for the differences in radio visible
+base stations. We have used this algorithm on our database
+populated with field measurements (instead of the predictions)
+and compared the obtained results against the determined models.
+
+\begin{itemize}
+ \item Hybrid Positioning 
+\end{itemize}
+Although without the specific AVL application, a kindred
+approach to the herein proposed positioning solution has been
+investigated in, several ANN, database correlation, and hybrid algorithms using
+the field-measured RSS as inputs. The ANNs were tested in
+both the classifier (area estimation) and regression (position
+estimation) configuration. However, the best results of roughly
+140 m | 67\% were achieved by using the hybrid database
+correlation and ANN approach. In, it is claimed that
+the extended Kalman filter (EKF)\index{EKF}\nomenclature{EKF}{Extended Kalman Filter} yields better performances
+for ANN training than the commonly used gradient descent
+schemes. Using the RSS inputs to their model, they have
+achieved DEs in the range of 55–70 m with low DE variance.
+Being that this algorithm has the best accuracy verified with the
+actual field measurements, This was applied our field measurements and compared it to the models determined in this system.
+
+\begin{itemize}
+ \item Timing Advance
+\end{itemize}
+Another course in PLMN positioning uses timing parameters, 
+such as timing advance (TA)\label{TA}\nomenclature{TA}{Timing Advance} parameter in GSM or round-
+trip time (RTT) and Rx–Tx observed time difference in UMTS. 
+It should be noted that these parameters can only estimate
+the distance between the mobile terminal and the serving base
+station (or Node B in case of UMTS). Usually, no more than
+one timing parameter can be obtained (belonging to the serving
+base station). Only in the case when there are more than two
+base stations in the active set (i.e., Nodes B involved in a
+soft handover procedure) a location estimate can be procured
+through the process of multilateration by using the timing
+parameters. Being that this is only occasionally the case in
+UMTS and totally impossible with standardized signaling of
+TA parameter in GSM, timing information by itself is generally
+insufficient for precise positioning, and it is necessary to use
+some other location-dependent information such as RSS parameters. 
+Moreover, the RTT parameter is not available in all
+UMTS networks.
+
+In a simulated urban environment, the database correlation 
+method using RTT and power delay profile yielded a
+25 m | 67\% accuracy. A similar accuracy, again in an urban
+environment, was simulated in, where a novel selection
+criterion was used to choose the three optimal RTT values
+(under nonline-of-sight conditions) for subsequent trilateration.
+Nevertheless, none of the studies involving real measurements
+endorse such superb accuracy. Field tests, in urban and residential areas, 
+using multiple TA values resulted in an accuracy
+of up to 105 m | 67\%. However, the algorithm proposed therein
+cannot be implemented using standardized GSM signaling.
+
+\addcontentsline{toc}{chapter}{Appendix D}
+\chapter*{ANNEXURE D: DATA SET}
+\label{Appendix D}
+\begin{itemize}
+ \item DATA FROM {\it http://openbmap.org/} USED FOR TRAINING
+\end{itemize}
+This data is downloades from the web site. 
+
+openBmap is a free and open map of wireless communicating objects 
+(e.g. cellular antenna, Wi-Fi, Bluetooth). It provides tools to mutualize data, 
+create and access this map.
+
+Helps to build a free database! 
+
+This data is used to train and test the ANN as well as SVM model (implimented system)
+
+\includepdf[scale=0.9, pages={1-4}]{xml.pdf}
+\newpage
+\begin{itemize}
+ \item DATA UPDATED AT HOST SERVER USING ANDROID APP. 
+\end{itemize}
+This data is created and maintained at host server site.
+The location information is updated by Mobile User as Vehicle share the location information
+to the Host.
+\includepdf[scale=0.9, pages={1}]{android.pdf}
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%Bibliography
+\addcontentsline{toc}{chapter}{Bibliography}
+%\renewcommand{\headrulewidth}{0pt}
+%\fancyhf{}
+\begin{thebibliography}{99}
+
+\bibitem{1}
+Burgard, Derr, Fox, Cremers, ``Integrating global position estimation and position tracking for mobile robots: 
+the dynamic Markov localization approach,'' {\it in Proceedings of the 1998 IEEE\/RSJ International Conference 
+on Intelligent Robots and Systems,} Vol.2, pp.730-735.
+\bibitem{2}
+Chetan Nimba Aher, Abhijit Adhikari,``SVM: The Qualitative and Quantitative Monolithic Predictor,''
+{\it in Proc. Int. Jour. Sci. Res.,} vol.2, issue 11, Nov.2013. 
+\bibitem{3}
+Duda R. and Hart P., ``Pattern Classification and Scene Analysis,'' Wiley, New York 1973.
+\bibitem{4}
+Ferragut, E.M.; Laska, J., ``Randomized Sampling for Large Data Applications of SVM,''
+{\it 11th International Conference onMachine Learning and Applications (ICMLA),} vol. 1, no.12- 15 pp.350,355, Dec. 2012.
+\bibitem{5}
+Hsu, Chih-Wei and Chang, Chih-Chung and Lin, Chih-Jen., ``A Practical Guide to Support Vector Classification,''
+Department of Computer Science, National Taiwan University , 2003.
+\bibitem{6}
+Milos Borenovic, Aleksandar Neskovic, and Natasa Neskovic, ``Vehicle Positioning Using GSM and Cascade-Connected 
+ANN Structures,'' {\it in Proc. IEEE Trans. Intell. Transp. Syst.,} Vol. 14, No. 1, pp.34-46, Mar. 2013.
+\bibitem{7}
+M. Borenovic, A. Neskovic, and D. Budimir, ``Multi-system-multi- operator localization in PLMN using neural networks,''
+{\it Int. J. Commun. Syst.,} vol. 25, no. 2, pp. 6783, Feb. 2011.
+\bibitem{8}
+M. O. Stitson and J. A. E. Weston., Implementational issues of support vector machines. Technical Report CSD-TR-96-18, 
+Computational Intelligence Group, Royal Holloway, University of London, 1996.
+\bibitem{9}
+M. Matosevic, Z. Salcic, and S. Berber, ``A comparison of accuracy using a GPS and a low-cost DGPS,''
+{\it in IEEE Trans. Instrum. Meas.,} vol. 55, no. 5, pp. 16771683, Oct. 2006.
+\bibitem{10}
+Nello, Cristianini and John Shawe-Taylor, ``An Introduction to Support Vector Machines and Other Kernel based 
+Learning Methods,'' Cambridge University Press, 2000.
+\bibitem{11}
+Osuna E., Freund R., and Girosi F., ``Support Vector Machines: Training and Applications,''
+A.I. Memo No. 1602, Artificial Intelligence Laboratory, MIT, 1997.
+\bibitem{12}
+Olivier Bousquet, Stephane Boucheron, and Gabor Lugosi, ``Introduction to Statistical Learning Theory.''
+\bibitem{13}
+OpenCV, ``Introduction to Support Vector Machines,'' [Online] Available:
+{\it http : //docs.opencv.org/doc/tutorials/ml/introduction to svm /introduction to svm.html?highlight = svm.} 
+[Accessed: Nov. 9,2013].
+\bibitem{14}
+Spilker, J.J. Jr.,``Fundamentals of Signal Tracking Theory,'' in Global Positioning System: Theory and Applications, 
+Vol. 1, Parkinson, B.W. and Spilker, J.J. Jr., eds., American Institute of Aeronautics and Astronautics, 
+(Washington, 1996). pp. 245-327
+\bibitem{15}
+Tom Mitchell, Machine Learning, McGraw-Hill Computer science series, 1997.
+\bibitem{16}
+Trafalis T., ``Primal-dual optimization methods in neural networks and support vector machines training'', ACAI99.
+\bibitem{17}
+Theodoros Evgenuiu and Massimilliano Pontil, Statistical Learning Theory: a Primer 1998.
+\bibitem{18}
+Vapnik, V.N., ``An overview of statistical learning theory,'' {\it IEEE Transactions on Neural Networks,} Vol. 10, no. 5,
+pp. 988,999, Sep 1999.
+\bibitem{19}
+Veropoulos K., Cristianini N., and Campbell C., ``The Application of Support Vector Machines to Medical Decision Support: 
+A Case Study,'' ACAI99.
+\bibitem{20}
+Wassi, G. I.; Despins, C.; Grenier, D.; Nerguizian, C., ``Indoor location using received signal strength of 
+IEEE 802.11b access point,'' {\it Canadian Conference on Electrical and Computer Engineering,} vol., no., pp. 1367,1370, 
+1-4 May 2005. 
+\bibitem{21}
+[Online] Dataset Available: {\it http://openbmap.org/} [Accessed: Feb; 2014]
+\end{thebibliography}
+
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\end{document}
+%makeindex cnasvm.nlo -s nomencl.ist -o cnasvm.nls
